@@ -218,6 +218,9 @@ hr {
 .nav-links a {
   border-bottom: 0;
   color: var(--text-soft);
+  /* 移动端 Safari / Chrome 会给链接附加默认蓝色 tap highlight，
+     在黑白极简导航里会瞬间闪成一个浅蓝方块；这里只保留我们自己的文字反馈。 */
+  -webkit-tap-highlight-color: transparent;
   /* 用 underline 而不是 border-bottom 标记 active：避免选中态切换时
      1px 边框带来的纵向位移；text-underline-offset 让下划线离基线远一些。 */
   text-decoration: underline solid transparent;
@@ -227,6 +230,10 @@ hr {
 }
 
 .nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a:active {
   color: var(--accent);
 }
 
