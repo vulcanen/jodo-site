@@ -2,10 +2,10 @@
    不引第三方字体 / CSS 框架；保持单文件可读。 */
 
 :root {
-  --bg: #0A0A0A;
+  --bg: #1A1A1A;
   --surface: #141414;
-  --surface-2: #1A1A1A;
-  --border: #222222;
+  --surface-2: #1E1E1E;
+  --border: #2A2A2A;
   --text: #F2F2F2;
   --text-soft: #B5B5B5;
   --text-mute: #888888;
@@ -33,9 +33,11 @@ body {
 
 /* ---------- Motion & focus (a11y) ---------- */
 
-/* 锚点跳转 / scroll-into-view 走平滑过渡。Reduce Motion 下退化为瞬变。 */
+/* 锚点跳转 / scroll-into-view 走平滑过渡。Reduce Motion 下退化为瞬变。
+   背景挂在 html 上：body 用 transparent，把 fx canvas/grain 插在 body 层下面。 */
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -66,13 +68,75 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* ---------- FX 层（噪点 / 光标聚光 / 粒子 / 涟漪）---------- */
+
+/* 全站极淡噪点。给纯黑加"胶片颗粒感"，避免廉价感。
+   静态贴图，不耗 CPU，prefers-reduced-motion 也保留。 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+/* 粒子 canvas 由 fx.js 注入，固定在视口背后。 */
+.fx-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 点击涟漪。JS 创建 .fx-ripple 元素，播放动画后自销毁。 */
+.fx-ripple {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  transform: translate(-50%, -50%) scale(0.5);
+  pointer-events: none;
+  z-index: 9998;
+  animation: fxRipple 600ms cubic-bezier(0.1, 0.5, 0.3, 1) forwards;
+}
+
+@keyframes fxRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(18);
+    opacity: 0;
+    border-color: rgba(255, 255, 255, 0);
+  }
+}
+
+/* 磁性按钮：JS 接管 transform 让 .btn 朝光标偏移；
+   原本 .btn:hover 的 translateY(-1px) 会和 JS 的 transform 冲突，这里禁掉。 */
+.btn[data-fx-magnetic]:hover {
+  transform: none;
+}
+
+/* Reduce Motion 兜底：保留静态噪点，关掉所有动效。 */
+@media (prefers-reduced-motion: reduce) {
+  .fx-canvas,
+  .fx-ripple {
+    display: none !important;
+  }
 }
 
 a {
@@ -115,6 +179,10 @@ hr {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 var(--pad);
+  /* 抬到 fx 层之上：grain 和 canvas particles 在 z-index 0；
+     这里 z-index 1 让正文 / 卡片 / 图永远盖在它们之上。 */
+  position: relative;
+  z-index: 1;
 }
 
 .nav {
@@ -221,6 +289,8 @@ hr {
 .btn:hover {
   transform: translateY(-1px);
   border-bottom: 0;
+  /* 显式压住全局 a:hover {color: var(--accent)} —— 不然白底 + hover 变白字会"消失"。 */
+  color: #000;
 }
 
 .btn-ghost {
