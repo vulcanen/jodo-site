@@ -5,7 +5,6 @@ Thumbs.db
 .vscode/
 .idea/
 node_modules/
-# 默认不收 APK，避免 build/ 之类目录被误 add 进来。
-# 但 release/ 目录是分发产物，主动放行。
+# APK 不进仓库。25 MB 是 Cloudflare Workers/Pages 的静态资源上限，
+# 分发改走 GitHub Releases（每文件 2 GB）。
 *.apk
-!release/Jodo-v*.apk

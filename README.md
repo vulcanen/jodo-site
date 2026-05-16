@@ -13,8 +13,6 @@ jodo-site/
 ├── privacy.html        隐私政策（与 App 内同步）
 ├── changelog.html      版本更新日志
 ├── support.html        支持作者 / 打赏页（与 App 内同步）
-├── release/            APK 分发目录（Gitee Pages 直接服务）
-│   └── Jodo-v1.0.0.apk
 ├── assets/
 │   ├── logo.svg        Jodo 图标（同 App 源 SVG）
 │   ├── logo.png        Jodo 图标（PNG 兜底）
@@ -22,6 +20,9 @@ jodo-site/
 │   ├── screenshots/    任务页 / 专注页 / 统计页 / 我的 截图
 │   └── donation/       微信 / 支付宝 收款码 PNG
 └── README.md
+
+APK 不在仓库里，发布在 GitHub Releases：
+  https://github.com/vulcanen/jodo-site/releases/tag/v<version>
 ```
 
 ## 发布新版本流程
@@ -29,18 +30,25 @@ jodo-site/
 1. 在 Jodo 源码仓库改 `pubspec.yaml` 的 version。
 2. 跑 `flutter analyze` + `flutter test` + `flutter build apk --release`，产物在 `build/app/outputs/apk/release/`。
 3. 用 `Get-FileHash -Algorithm SHA256 <apk>` 取校验值。
-4. 把新 APK 复制到本仓库 `release/Jodo-v<version>.apk`（老 APK 同时移除，避免 git 历史膨胀；用户能从更新日志回看版本号）。
-5. 在本仓库改：
-   - `index.html` 的版本号 / 文件名 / 大小 / SHA-256 / 下载链接路径
+4. 在本仓库改：
+   - `index.html` 的版本号 / 文件名 / 大小 / SHA-256 / 下载链接（指向新 tag）
    - `install.html` 的版本号
    - `changelog.html` 顶部加新一节
    - 如有隐私政策变化，同步改 `privacy.html`
-6. 提交并 `git push`。
-7. 在 Gitee Pages 后台点「更新」让线上版本刷新（注意 APK 一并部署，可能比平时多几秒）。
-8. 用无痕浏览器验证下载链接和 SHA-256 都对。
+5. 提交并 `git push`（自动触发 Cloudflare Pages 重新部署，1-3 分钟）。
+6. 用 `gh` 创建 release 并上传 APK：
+   ```powershell
+   gh release create v<version> `
+     --repo vulcanen/jodo-site `
+     --title "v<version>" `
+     --notes "详见 changelog.html" `
+     D:\projects\Jodo\build\app\outputs\apk\release\Jodo-v<version>.apk
+   ```
+7. 用无痕浏览器验证下载链接和 SHA-256 都对。
 
-> Why 不用阿里云盘：阿里云盘不允许公开分享 APK 类型文件，分享链接最多 1 天有效，不适合长期分发。
-> 后续如果 jodo-site 单仓库尺寸超 100 MB，可改用 [Gitee Releases](https://gitee.com/help/articles/4291)（按 tag 附二进制，不进 git 历史）。
+> Why 不把 APK 放在仓库里：Cloudflare Pages（含 Workers Static Assets）单文件上限 25 MiB，
+> 而我们的 APK 是 61 MiB。Gitee Pages 对个人账号几乎已关停。
+> GitHub Releases 每文件 2 GB，是分发二进制的标准做法。
 
 ## 资源说明
 
@@ -51,4 +59,4 @@ jodo-site/
 
 - 不要把 keystore / `key.properties` 放进来
 - 不要引第三方统计 / 评论 / 字体（保持「不联网、不收集」承诺一致）
-- 不要在 `release/` 之外放 APK；`.gitignore` 默认拦截，避免误 commit 调试包
+- 不要把 APK 放进仓库（Cloudflare 单文件 25 MiB 上限会卡部署；`.gitignore` 已全局拦截 `*.apk`）
