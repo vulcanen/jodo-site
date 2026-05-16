@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>支持 Jodo · 自愿打赏</title>
+    <meta name="description" content="Jodo 是免费的本地优先工具。如果它帮到你，可以自愿请作者喝杯咖啡。打赏不解锁任何功能。" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="assets/logo.png" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <style>
+      /* support.html 私有：二维码方格的极简卡片 */
+      .qr-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .qr-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 22px;
+        text-align: center;
+      }
+      .qr-card h3 {
+        margin: 0 0 14px;
+        font-size: 14px;
+        color: var(--text-soft);
+        font-weight: 600;
+      }
+      .qr-card img {
+        width: 100%;
+        max-width: 220px;
+        aspect-ratio: 1;
+        background: var(--surface-2);
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto;
+      }
+      @media (max-width: 540px) {
+        .qr-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a class="nav-brand" href="./index.html">
+          <img src="assets/logo.svg" alt="" />
+          <span>Jodo</span>
+        </a>
+        <div class="nav-links">
+          <a href="install.html">安装</a>
+          <a href="privacy.html">隐私</a>
+          <a href="changelog.html">更新</a>
+          <a href="support.html" aria-current="page">支持</a>
+        </div>
+      </nav>
+
+      <main>
+      <header class="page-head">
+        <h1>支持 Jodo</h1>
+        <p class="sub">自愿打赏，不解锁功能。</p>
+      </header>
+
+      <section>
+        <p class="muted" style="font-size: 15px; line-height: 1.8;">
+          Jodo 坚持<strong style="color: var(--text);">无广告、无订阅、无联网、无 AI</strong>，
+          所有数据只保存在你的设备上。<br />
+          如果它帮你更好地完成任务和保持专注，可以自愿请作者喝杯咖啡。<br />
+          打赏不解锁任何功能，也不影响正常使用。
+        </p>
+      </section>
+
+      <section>
+        <h2>扫码支持</h2>
+        <div class="qr-grid">
+          <div class="qr-card">
+            <h3>微信支付</h3>
+            <img src="assets/donation/wechat.png" alt="微信支付收款码" loading="lazy" decoding="async" />
+          </div>
+          <div class="qr-card">
+            <h3>支付宝</h3>
+            <img src="assets/donation/alipay.png" alt="支付宝收款码" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <p class="muted" style="text-align: center; margin-top: 18px; font-size: 13px;">
+          一点心意都很珍贵。
+        </p>
+      </section>
+
+      <section>
+        <h2>承诺</h2>
+        <ul class="dots">
+          <li>打赏完全自愿，不影响任何功能使用。</li>
+          <li>不发送给第三方，不开发票，不留记录。</li>
+          <li>不会在 App 内做打赏弹窗 / 倒计时 / 推送提醒。</li>
+          <li>资金用于继续维护 Jodo 和支付下一台 Mac mini 的电费。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>不打算扫码？也没关系</h2>
+        <p class="muted">
+          你只是用得开心、跟朋友推荐一下、给我发一封建议邮件
+          (<a href="mailto:everydayisnewstart@163.com">everydayisnewstart@163.com</a>)，
+          对我来说同样重要。Jodo 不会因为你没打赏而变得不一样。
+        </p>
+      </section>
+
+      </main>
+
+      <footer>
+        <span>© 2026 Jodo · Just Do</span>
+        <span>
+          <a href="install.html">安装</a> ·
+          <a href="privacy.html">隐私</a> ·
+          <a href="changelog.html">更新</a> ·
+          <a href="support.html">支持</a>
+        </span>
+      </footer>
+    </div>
+  </body>
+</html>

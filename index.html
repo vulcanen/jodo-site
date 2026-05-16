@@ -12,6 +12,12 @@
     <meta property="og:title" content="Jodo · Just Do" />
     <meta property="og:description" content="极简的任务管理与专注计时 App，完全本地、不联网、不收集。" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vulcanen.gitee.io/jodo-site/" />
+    <meta property="og:image" content="assets/logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Jodo · Just Do" />
+    <meta name="twitter:description" content="极简的任务管理与专注计时 App，完全本地、不联网、不收集。" />
+    <meta name="twitter:image" content="assets/logo.png" />
   </head>
   <body>
     <div class="wrap">
@@ -24,9 +30,11 @@
           <a href="install.html">安装</a>
           <a href="privacy.html">隐私</a>
           <a href="changelog.html">更新</a>
+          <a href="support.html">支持</a>
         </div>
       </nav>
 
+      <main>
       <header class="hero">
         <img class="hero-logo" src="assets/logo.svg" alt="Jodo logo" />
         <h1>Just Do.</h1>
@@ -35,8 +43,8 @@
           写下今天要做的事，开启一段不被打扰的专注，然后看着任务一条条划掉。
         </p>
         <div class="hero-actions">
-          <a class="btn" href="#download">下载 Android APK</a>
-          <span class="btn-meta">v1.0.0 · Android 11+ · 约 60.5 MB</span>
+          <a class="btn" href="release/Jodo-v1.0.0.apk" download>下载 Android APK</a>
+          <span class="btn-meta">v1.0.0 · Android 11+ · 约 61.3 MB</span>
         </div>
       </header>
 
@@ -73,22 +81,21 @@
       <section>
         <h2>看看它长什么样</h2>
         <div class="shots">
-          <!-- TODO_REPLACE: 把 assets/screenshots/ 下的 4 张图替换占位 -->
           <div class="shot">
-            <div class="shot-placeholder">任务页</div>
+            <img src="assets/screenshots/tasks.png" alt="任务页：周历条 + 任务池 + 归档箱 / 最近删除入口" loading="lazy" decoding="async" />
           </div>
           <div class="shot">
-            <div class="shot-placeholder">专注页</div>
+            <img src="assets/screenshots/focus.png" alt="专注页：番茄钟 45:00 计时盘 + 关联今日任务入口" loading="lazy" decoding="async" />
           </div>
           <div class="shot">
-            <div class="shot-placeholder">统计页</div>
+            <img src="assets/screenshots/stats.png" alt="统计页：连续打卡 + 月度热图 + 本周专注 + 完成率" loading="lazy" decoding="async" />
           </div>
           <div class="shot">
-            <div class="shot-placeholder">我的</div>
+            <img src="assets/screenshots/profile.png" alt="我的：主题 / 语言 / 默认番茄时长 / 标签 / 数据备份" loading="lazy" decoding="async" />
           </div>
         </div>
         <p class="muted" style="margin-top: 14px; font-size: 13px;">
-          截图来自真实使用环境。如果你已经下载，欢迎在自己的任务里再造几张。
+          浅色模式实拍，深色模式可在「我的 → 外观」一键切换。
         </p>
       </section>
 
@@ -109,11 +116,11 @@
           </div>
           <div class="dl-card-row">
             <span class="k">大小</span>
-            <span class="v plain">60.5 MB</span>
+            <span class="v plain">61.3 MB</span>
           </div>
           <div class="dl-card-row">
             <span class="k">SHA-256</span>
-            <span class="v">4255E11FB1D26F38317F699331A4D9149FB882A61D1BFB742C01A8DFAB884FE7</span>
+            <span class="v">4DB3B70BDB4623F4D4F4DFA7B31F6E2820BD28C6F7522D6FA318B0398F578B67</span>
           </div>
           <div class="dl-card-row">
             <span class="k">最低系统</span>
@@ -122,14 +129,22 @@
           <div class="dl-card-row">
             <span class="k">下载</span>
             <span class="v plain">
-              <a href="TODO_REPLACE_ALIYUN_URL">阿里云盘 →</a>
-              <!-- 如果有提取码，加在下行：提取码：xxxx -->
+              <a href="release/Jodo-v1.0.0.apk" download>直接下载 →</a>
             </span>
           </div>
         </div>
         <p class="notice" style="margin-top: 16px;">
-          由于 Jodo 暂未上架应用商店，安装时系统会提示「未知来源应用」。请确认下载来源为本官网，
+          由于 Jodo 暂未上架应用商店，安装时系统会提示「未知来源应用」。请确认下载来源为本官网（<code>vulcanen.gitee.io</code>），
           并按照 <a href="install.html">安装说明</a> 完成。下载完成后建议核对上面的 SHA-256。
+        </p>
+      </section>
+
+      <section>
+        <h2>支持作者</h2>
+        <p class="muted">
+          Jodo 是免费的本地优先工具。如果它帮到你，可以
+          <a href="support.html">自愿请作者喝杯咖啡 →</a>
+          打赏完全自愿，不解锁任何功能。
         </p>
       </section>
 
@@ -137,17 +152,20 @@
         <h2>反馈与联系</h2>
         <p class="muted">
           有 Bug、改进建议或想说点什么，可以通过邮箱联系：
-          <a href="mailto:TODO_REPLACE_FEEDBACK_EMAIL">TODO_REPLACE_FEEDBACK_EMAIL</a>。
+          <a href="mailto:everydayisnewstart@163.com">everydayisnewstart@163.com</a>。
           每一条都会读，但不保证立刻回复。
         </p>
       </section>
+
+      </main>
 
       <footer>
         <span>© 2026 Jodo · Just Do</span>
         <span>
           <a href="install.html">安装</a> ·
           <a href="privacy.html">隐私</a> ·
-          <a href="changelog.html">更新</a>
+          <a href="changelog.html">更新</a> ·
+          <a href="support.html">支持</a>
         </span>
       </footer>
     </div>

@@ -8,7 +8,7 @@
   --border: #222222;
   --text: #F2F2F2;
   --text-soft: #B5B5B5;
-  --text-mute: #6E6E6E;
+  --text-mute: #888888;
   --accent: #FFFFFF;
   --ok: #4ADE80;
   --warn: #FBBF24;
@@ -29,6 +29,40 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+/* ---------- Motion & focus (a11y) ---------- */
+
+/* 锚点跳转 / scroll-into-view 走平滑过渡。Reduce Motion 下退化为瞬变。 */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .btn:hover {
+    transform: none !important;
+  }
+}
+
+/* 键盘 Tab 焦点环：只在键盘聚焦时显示（鼠标点击不会触发 :focus-visible）。
+   黑色背景下用纯白环 + 2px offset，对比清晰且不挤元素。 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.btn:focus-visible {
+  outline-offset: 3px;
 }
 
 body {
@@ -116,10 +150,21 @@ hr {
 .nav-links a {
   border-bottom: 0;
   color: var(--text-soft);
+  /* 用 underline 而不是 border-bottom 标记 active：避免选中态切换时
+     1px 边框带来的纵向位移；text-underline-offset 让下划线离基线远一些。 */
+  text-decoration: underline solid transparent;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 
 .nav-links a:hover {
   color: var(--accent);
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 /* ---------- Hero ---------- */

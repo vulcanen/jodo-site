@@ -5,5 +5,7 @@ Thumbs.db
 .vscode/
 .idea/
 node_modules/
-# 不允许把 APK 二进制 commit 进来
+# 默认不收 APK，避免 build/ 之类目录被误 add 进来。
+# 但 release/ 目录是分发产物，主动放行。
 *.apk
+!release/Jodo-v*.apk
