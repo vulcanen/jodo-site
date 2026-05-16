@@ -1,6 +1,6 @@
 # jodo-site
 
-Jodo 官网静态资源仓库。通过 Gitee Pages 托管：`https://vulcanen.gitee.io/jodo-site/`
+Jodo 官网静态资源仓库。通过 Cloudflare Pages 托管（GitHub `vulcanen/jodo-site` 仓库自动部署）。
 
 > 注意：此仓库**只放静态网页和展示素材**，不放源码、不放 keystore、不放 `key.properties`。
 
@@ -47,8 +47,7 @@ APK 不在仓库里，发布在 GitHub Releases：
 7. 用无痕浏览器验证下载链接和 SHA-256 都对。
 
 > Why 不把 APK 放在仓库里：Cloudflare Pages（含 Workers Static Assets）单文件上限 25 MiB，
-> 而我们的 APK 是 61 MiB。Gitee Pages 对个人账号几乎已关停。
-> GitHub Releases 每文件 2 GB，是分发二进制的标准做法。
+> 而我们的 APK 是 61 MiB。GitHub Releases 每文件 2 GB，是分发二进制的标准做法。
 
 ## 资源说明
 
