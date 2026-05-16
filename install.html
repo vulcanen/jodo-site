@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>安装说明 · Jodo</title>
+    <meta name="description" content="如何从官网下载并安装 Jodo Android APK。" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="assets/logo.png" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a class="nav-brand" href="./index.html">
+          <img src="assets/logo.svg" alt="" />
+          <span>Jodo</span>
+        </a>
+        <div class="nav-links">
+          <a href="install.html">安装</a>
+          <a href="privacy.html">隐私</a>
+          <a href="changelog.html">更新</a>
+        </div>
+      </nav>
+
+      <header class="page-head">
+        <h1>安装说明</h1>
+        <p class="sub">从下载到打开 App，大概 1 分钟。</p>
+      </header>
+
+      <section>
+        <h2>步骤</h2>
+        <ol class="steps">
+          <li>点击 <a href="index.html#download">首页下载按钮</a>，跳转到阿里云盘下载页。</li>
+          <li>下载 <code>Jodo-v1.0.0.apk</code> 到手机。</li>
+          <li>下载完成后，在文件管理器或浏览器的"已下载"里点击这个 APK。</li>
+          <li>按系统提示，允许「当前来源」安装应用。不同手机品牌位置略有差异，但都是一次性的开关。</li>
+          <li>安装完成后，回到桌面打开 Jodo。</li>
+          <li>（可选）安装完后，可以把那个"允许未知来源"的开关再关掉。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>关于"未知来源"提示</h2>
+        <p class="notice">
+          Android 对非应用商店安装包会显示安全提示，这是系统的正常保护机制。
+          请只从 Jodo 官网链接下载，并核对版本号与 SHA-256。
+        </p>
+      </section>
+
+      <section>
+        <h2>验证文件完整性（可选）</h2>
+        <p class="muted">
+          如果你想确认 APK 没有在传输中被替换，可以核对 SHA-256。
+          在 Windows / PowerShell 中：
+        </p>
+        <pre>Get-FileHash -Algorithm SHA256 Jodo-v1.0.0.apk</pre>
+        <p class="muted">
+          在 macOS / Linux 中：
+        </p>
+        <pre>shasum -a 256 Jodo-v1.0.0.apk</pre>
+        <p class="muted">
+          结果应该和首页下载区显示的 SHA-256 完全一致。
+        </p>
+      </section>
+
+      <section>
+        <h2>升级到新版本</h2>
+        <p class="muted">
+          下载新版本 APK，按上面的步骤再装一次即可，原有数据不会丢失（同包名同签名直接覆盖安装）。
+          如果想换设备迁移数据，使用 App 内「我的 → 导出数据」生成 JSON 备份，到新设备「我的 → 导入数据」即可。
+        </p>
+      </section>
+
+      <section>
+        <h2>卸载与数据清理</h2>
+        <p class="muted">
+          直接卸载 App，系统会自动清掉所有本地数据。
+          你也可以在系统设置 → 应用 → Jodo → 存储 → "清除数据" 手动清空，不卸载也能恢复初始状态。
+        </p>
+      </section>
+
+      <footer>
+        <span>© 2026 Jodo · Just Do</span>
+        <span>
+          <a href="install.html">安装</a> ·
+          <a href="privacy.html">隐私</a> ·
+          <a href="changelog.html">更新</a>
+        </span>
+      </footer>
+    </div>
+  </body>
+</html>

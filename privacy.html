@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>隐私政策 · Jodo</title>
+    <meta name="description" content="Jodo 隐私政策。完全本地，不联网，不收集任何用户数据。" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="assets/logo.png" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a class="nav-brand" href="./index.html">
+          <img src="assets/logo.svg" alt="" />
+          <span>Jodo</span>
+        </a>
+        <div class="nav-links">
+          <a href="install.html">安装</a>
+          <a href="privacy.html">隐私</a>
+          <a href="changelog.html">更新</a>
+        </div>
+      </nav>
+
+      <header class="page-head">
+        <h1>隐私政策</h1>
+        <p class="sub">生效日期：2026-05-16</p>
+      </header>
+
+      <article class="prose">
+        <h2>一、概述</h2>
+        <p>
+          Jodo 是一款本地优先的「任务 + 专注」生产力工具，<strong>完全不联网、不收集任何用户数据</strong>。
+          本隐私政策说明应用在设备上会处理哪些数据，以及我们承诺不做什么。
+        </p>
+
+        <h2>二、应用在本机会处理的数据</h2>
+        <p>Jodo 只在你的设备上存储以下信息，用于提供核心功能：</p>
+        <ul>
+          <li>你创建的任务（标题、描述、优先级、标签）</li>
+          <li>任务状态（收件箱 / 今日 / 已完成 / 沉睡 / 归档 / 最近删除）</li>
+          <li>专注会话记录（开始/结束时间、模式、关联任务）</li>
+          <li>任务的创建时间、更新时间、完成时间</li>
+          <li>外观偏好与设置（主题、语言、默认番茄时长、默认休息时长、提醒开关与提醒时间）</li>
+        </ul>
+        <p>
+          以上所有数据都保存在设备本地的 SQLite 数据库中。
+          <strong>不会上传到任何服务器，也不会发送给任何第三方。</strong>
+        </p>
+
+        <h2>三、我们明确不做的事</h2>
+        <ul>
+          <li>不收集姓名、邮箱、电话、设备 ID 等任何身份信息</li>
+          <li>不做任何使用统计、埋点、行为分析</li>
+          <li>不集成任何第三方 SDK（广告、统计、推送、崩溃分析等）</li>
+          <li>不请求网络访问权限</li>
+          <li>不请求通讯录、相册、位置、通话、相机、麦克风等敏感权限</li>
+          <li>不集成任何 AI / 大模型服务（你的任务文本永远不会被发到外部）</li>
+          <li>不在后台收集或上传任何数据</li>
+        </ul>
+
+        <h2>四、应用请求的权限</h2>
+        <p>Jodo 运行时<strong>不主动请求任何敏感权限</strong>。以下权限仅在用户主动发起操作时才触发：</p>
+        <table class="def">
+          <tbody>
+            <tr>
+              <th>文件读取</th>
+              <td>用户点击「导入数据」时，读取选定的 JSON 备份文件。</td>
+            </tr>
+            <tr>
+              <th>文件写入 / 分享</th>
+              <td>用户点击「导出数据」时，生成 JSON 备份到选定位置。</td>
+            </tr>
+            <tr>
+              <th>通知</th>
+              <td>用户首次启用「每日提醒」时，用于本地通知（每日提醒 / 专注完成 / 休息结束）。只本机产生，不联网。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>权限仅在当次操作或用户明确开启的提醒功能中使用，不会用于其它目的。</p>
+
+        <h2>五、数据的备份与迁移</h2>
+        <p>
+          应用内置「导出数据」功能，生成一份包含你全部任务、专注会话、标签的 JSON 文件，完全由你自己掌控。你可以：
+        </p>
+        <ul>
+          <li>保存到本地文件管理器</li>
+          <li>通过微信 / 邮件 / AirDrop / 其他应用分享</li>
+          <li>导入到另一台设备上的 Jodo</li>
+        </ul>
+        <p>导出文件不包含任何身份信息，只有你输入过的任务 / 专注数据本身。</p>
+
+        <h2>六、数据的删除</h2>
+        <ul>
+          <li><strong>归档任务</strong>：左滑归档，任务从主列表移除但数据永久保留，可随时恢复。</li>
+          <li><strong>删除任务</strong>：左滑删除，任务进入「最近删除」回收站，30 天内可恢复；过期后系统自动物理清理。</li>
+          <li><strong>立即彻底删除</strong>：在「最近删除」中可对单条任务执行「永久删除」，数据立即从设备上抹除，不可恢复。</li>
+          <li><strong>全部清除</strong>：卸载应用后所有本地数据随系统自动删除；也可使用系统设置的「清除应用数据」手动清空。</li>
+        </ul>
+
+        <h2>七、数据安全</h2>
+        <p>由于所有数据都保存在本机，安全性取决于你的设备本身。建议：</p>
+        <ul>
+          <li>启用设备锁屏（指纹 / 面容 / PIN 码）</li>
+          <li>不要在 root / 越狱设备上保存敏感任务内容</li>
+          <li>定期使用「导出数据」做备份，并把备份文件放到安全位置</li>
+        </ul>
+
+        <h2>八、儿童隐私</h2>
+        <p>Jodo 不针对任何特定年龄段，但因为<strong>不收集任何数据</strong>，也就不存在儿童个人信息的收集与处理。</p>
+
+        <h2>九、政策变更</h2>
+        <p>
+          如果这份政策有更新，会同步修改应用内的「隐私政策」页面和本页面，并把新的「生效日期」标注在文首。
+          对应版本的应用首次启动时可能会显示简要提示。
+        </p>
+
+        <h2>十、联系我们</h2>
+        <p>
+          如果你对本隐私政策有任何疑问或建议，可以通过
+          <a href="mailto:TODO_REPLACE_FEEDBACK_EMAIL">TODO_REPLACE_FEEDBACK_EMAIL</a>
+          与我们联系。
+        </p>
+      </article>
+
+      <footer>
+        <span>© 2026 Jodo · Just Do</span>
+        <span>
+          <a href="install.html">安装</a> ·
+          <a href="privacy.html">隐私</a> ·
+          <a href="changelog.html">更新</a>
+        </span>
+      </footer>
+    </div>
+  </body>
+</html>

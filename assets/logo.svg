@@ -1,0 +1,54 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 背景主渐变：顶部偏浅灰 → 底部纯黑（保留品牌调性） -->
+    <linearGradient id="bgGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#2A2A30"/>
+      <stop offset="55%" stop-color="#121216"/>
+      <stop offset="100%" stop-color="#050506"/>
+    </linearGradient>
+
+    <!-- 顶部光照高光 -->
+    <radialGradient id="topGlow" cx="50%" cy="0%" r="75%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 底部阴影压暗，增强深度 -->
+    <linearGradient id="bgBottomShadow" x1="50%" y1="55%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.38"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== 背景层叠：主渐变 → 顶部高光 → 底部阴影 → 玻璃边 ===== -->
+  <rect width="512" height="512" rx="115" fill="url(#bgGrad)"/>
+  <rect width="512" height="512" rx="115" fill="url(#topGlow)"/>
+  <rect width="512" height="512" rx="115" fill="url(#bgBottomShadow)"/>
+  <rect x="2" y="2" width="508" height="508" rx="113"
+        fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="2"/>
+
+  <!-- ===== 主标记：涂鸦开口外圈 + 对勾 =====
+       几何构造：
+       - 只保留开口外圈和对勾，删掉旧版内层细环与引导头圆点
+       - 外圈不再用标准圆弧，而是由几段轻微不规整的贝塞尔曲线组成
+       - 对勾也用曲线连接，保留圆头圆拐，让整体更像手绘一笔写成
+  -->
+
+  <!-- 手绘感开口外圈：右上留缺口，线条略微起伏但整体仍保持清晰识别 -->
+  <path d="M 303 94
+           C 246 77, 180 92, 132 137
+           C 82 184, 67 254, 86 316
+           C 105 383, 165 430, 236 437
+           C 305 443, 370 409, 405 354
+           C 437 304, 439 248, 416 205"
+        fill="none" stroke="#FFFFFF" stroke-width="24"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 主勾：轻微弯折的涂鸦笔触，终点穿过右上缺口形成"Just Do"的利落感 -->
+  <path d="M 177 263
+           C 196 279, 218 306, 241 325
+           C 283 270, 333 205, 402 134"
+        fill="none" stroke="#FFFFFF" stroke-width="40"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

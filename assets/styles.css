@@ -1,0 +1,474 @@
+/* Jodo 官网样式 —— 黑白极简，与 App 视觉一致。
+   不引第三方字体 / CSS 框架；保持单文件可读。 */
+
+:root {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --surface-2: #1A1A1A;
+  --border: #222222;
+  --text: #F2F2F2;
+  --text-soft: #B5B5B5;
+  --text-mute: #6E6E6E;
+  --accent: #FFFFFF;
+  --ok: #4ADE80;
+  --warn: #FBBF24;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --pad: 20px;
+  --maxw: 880px;
+  --mono: "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--text-mute);
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--mono);
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  overflow-x: auto;
+  line-height: 1.55;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 48px 0;
+}
+
+/* ---------- Layout ---------- */
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+.nav {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.2px;
+}
+
+.nav-brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  font-size: 14px;
+}
+
+.nav-links a {
+  border-bottom: 0;
+  color: var(--text-soft);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 56px 0 24px;
+  text-align: center;
+}
+
+.hero-logo {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  margin: 0 auto 28px;
+  display: block;
+}
+
+.hero h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 0 0 14px;
+  letter-spacing: -0.5px;
+  font-weight: 800;
+}
+
+.hero .tagline {
+  color: var(--text-soft);
+  font-size: 17px;
+  margin: 0 auto 28px;
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: #000;
+  border-radius: 999px;
+  border: 0;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-bottom: 0;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-meta {
+  color: var(--text-mute);
+  font-size: 12px;
+}
+
+/* ---------- Sections ---------- */
+section {
+  padding: 32px 0;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 0 0 20px;
+  letter-spacing: -0.2px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+p.muted,
+.muted {
+  color: var(--text-soft);
+}
+
+/* ---------- Feature grid ---------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.feature {
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.feature h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Screenshot strip ---------- */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.shot {
+  aspect-ratio: 9 / 19.5;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shot-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-mute);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 720px) {
+  .shots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Download card ---------- */
+.dl-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.dl-card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.dl-card-row:last-child {
+  border-bottom: 0;
+}
+
+.dl-card-row .k {
+  color: var(--text-mute);
+  flex-shrink: 0;
+}
+
+.dl-card-row .v {
+  color: var(--text);
+  text-align: right;
+  word-break: break-all;
+  font-family: var(--mono);
+}
+
+.dl-card-row .v.plain {
+  font-family: var(--sans);
+}
+
+.notice {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+/* ---------- Lists / step blocks ---------- */
+ol.steps {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+}
+
+ol.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding: 14px 18px 14px 56px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+}
+
+ol.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+ul.dots {
+  padding-left: 0;
+  list-style: none;
+}
+
+ul.dots > li {
+  position: relative;
+  padding: 4px 0 4px 18px;
+  color: var(--text-soft);
+}
+
+ul.dots > li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 14px;
+  width: 4px;
+  height: 4px;
+  background: var(--text-mute);
+  border-radius: 50%;
+}
+
+/* ---------- Tables ---------- */
+table.def {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+table.def th,
+table.def td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+table.def th {
+  color: var(--text-mute);
+  font-weight: 500;
+  width: 28%;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 48px 0 56px;
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-mute);
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+}
+
+footer a {
+  border-bottom: 0;
+  color: var(--text-soft);
+}
+
+/* ---------- Page titles for subpages ---------- */
+.page-head {
+  padding: 32px 0 16px;
+}
+
+.page-head h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+  letter-spacing: -0.2px;
+}
+
+.page-head .sub {
+  color: var(--text-mute);
+  font-size: 14px;
+}
+
+/* Article-like prose for legal pages */
+.prose h2 {
+  font-size: 18px;
+  margin-top: 36px;
+  margin-bottom: 10px;
+}
+
+.prose p {
+  color: var(--text-soft);
+  margin: 0 0 10px;
+}
+
+.prose ul {
+  padding-left: 22px;
+  color: var(--text-soft);
+}
+
+.prose ul li {
+  margin-bottom: 4px;
+}
+
+.prose strong,
+.prose b {
+  color: var(--text);
+}
