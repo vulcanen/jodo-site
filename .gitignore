@@ -8,3 +8,10 @@ node_modules/
 # APK 不进仓库。25 MB 是 Cloudflare Workers/Pages 的静态资源上限，
 # 分发改走 GitHub Releases（每文件 2 GB）。
 *.apk
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
