@@ -77,6 +77,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* iOS Safari / Android Chrome 默认会在可点元素按下时刷一层浅蓝高亮。
+   Jodo 官网是黑白极简风，统一关闭浏览器默认 tap highlight，
+   再由各组件自己的 hover / active / focus-visible 反馈接管。 */
+a,
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* ---------- FX 层（噪点 / 光标聚光 / 粒子 / 涟漪）---------- */
 
 /* 全站极淡噪点。给纯黑加"胶片颗粒感"，避免廉价感。
@@ -218,9 +227,6 @@ hr {
 .nav-links a {
   border-bottom: 0;
   color: var(--text-soft);
-  /* 移动端 Safari / Chrome 会给链接附加默认蓝色 tap highlight，
-     在黑白极简导航里会瞬间闪成一个浅蓝方块；这里只保留我们自己的文字反馈。 */
-  -webkit-tap-highlight-color: transparent;
   /* 用 underline 而不是 border-bottom 标记 active：避免选中态切换时
      1px 边框带来的纵向位移；text-underline-offset 让下划线离基线远一些。 */
   text-decoration: underline solid transparent;
